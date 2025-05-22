@@ -91,9 +91,9 @@ export function LoginPage() {
         </Button>
         
         <div className="text-sm text-center text-muted-foreground mt-4">
-          <p>For demo purposes:</p>
-          <p>Use any email with "teacher" to login as a teacher</p>
-          <p>Use any other email to login as a student</p>
+          <p></p>
+          <p></p>
+          <p></p>
         </div>
       </form>
     </AuthLayout>
