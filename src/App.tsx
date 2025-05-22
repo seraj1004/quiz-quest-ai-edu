@@ -14,6 +14,12 @@ import { DashboardPage } from "./pages/StudentPages/DashboardPage";
 import { DiagnosticTestPage } from "./pages/StudentPages/DiagnosticTestPage";
 import { QuestionPage } from "./pages/StudentPages/QuestionPage";
 import { TeacherDashboardPage } from "./pages/TeacherPages/TeacherDashboardPage";
+import { ProgressPage } from "./pages/StudentPages/ProgressPage";
+import { AchievementsPage } from "./pages/StudentPages/AchievementsPage";
+import { ChatPage } from "./pages/StudentPages/ChatPage";
+import { TeacherStudentsPage } from "./pages/TeacherPages/TeacherStudentsPage";
+import { TeacherSubjectsPage } from "./pages/TeacherPages/TeacherSubjectsPage";
+import { TeacherReportsPage } from "./pages/TeacherPages/TeacherReportsPage";
 
 const queryClient = new QueryClient();
 
@@ -32,15 +38,19 @@ const App = () => (
           {/* Student Routes */}
           <Route path="/" element={<StudentLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/progress" element={<ProgressPage />} />
+            <Route path="/achievements" element={<AchievementsPage />} />
+            <Route path="/chat" element={<ChatPage />} />
             <Route path="/diagnostic/:subjectId" element={<DiagnosticTestPage />} />
             <Route path="/subject/:subjectId" element={<QuestionPage />} />
-            {/* Add other student routes here */}
           </Route>
           
           {/* Teacher Routes */}
           <Route path="/teacher" element={<TeacherLayout />}>
             <Route index element={<TeacherDashboardPage />} />
-            {/* Add other teacher routes here */}
+            <Route path="/teacher/students" element={<TeacherStudentsPage />} />
+            <Route path="/teacher/subjects" element={<TeacherSubjectsPage />} />
+            <Route path="/teacher/reports" element={<TeacherReportsPage />} />
           </Route>
           
           {/* 404 Route */}

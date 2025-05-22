@@ -8,6 +8,16 @@ import { BadgeDisplay } from "@/components/BadgeDisplay";
 import { ProgressChart } from "@/components/ProgressChart";
 import { Check, Book, BookOpen, History, FileText } from "lucide-react";
 
+// Define the UserBadge type to match what BadgeDisplay expects
+type UserBadge = {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  type: "bronze" | "silver" | "gold" | "diamond";
+  earnedAt?: string;
+};
+
 export function DashboardPage() {
   // Mock student data - in a real app this would come from a database
   const [student] = useState({
@@ -72,8 +82,8 @@ export function DashboardPage() {
     { id: "5", name: "James L.", image: null, points: 1900, rank: 5 }
   ]);
   
-  // Mock badges
-  const [badges] = useState([
+  // Mock badges with proper type
+  const [badges] = useState<UserBadge[]>([
     { id: "1", name: "First Step", description: "Complete your first diagnostic test", icon: "🎯", type: "bronze", earnedAt: "2023-04-15" },
     { id: "2", name: "Math Star", description: "Score 90% on a math test", icon: "🧮", type: "silver", earnedAt: "2023-04-20" },
     { id: "3", name: "Streak Master", description: "Maintain a 7-day streak", icon: "🔥", type: "bronze", earnedAt: "2023-04-28" },
