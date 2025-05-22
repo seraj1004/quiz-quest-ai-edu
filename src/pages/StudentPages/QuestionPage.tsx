@@ -35,7 +35,7 @@ const MOCK_QUESTIONS: Record<string, Question[]> = {
         { id: "c", text: "15" },
         { id: "d", text: "17" }
       ],
-      correctAnswer: "d",
+      correctAnswer: "b",
       explanation: "To find f(2), substitute x = 2 into the function.\nf(2) = 3(2)² - 2(2) + 5\nf(2) = 3(4) - 4 + 5\nf(2) = 12 - 4 + 5\nf(2) = 17"
     },
     {
