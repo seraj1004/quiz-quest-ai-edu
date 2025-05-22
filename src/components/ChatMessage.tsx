@@ -13,15 +13,24 @@ export interface Message {
 }
 
 interface ChatMessageProps {
-  message: Message;
+  message: Message | string;
+  sender?: MessageRole;
+  timestamp?: Date;
   user?: {
     name?: string | null;
     image?: string | null;
   };
 }
 
-export function ChatMessage({ message, user }: ChatMessageProps) {
-  const isUser = message.role === "user";
+export function ChatMessage({ message, sender, timestamp, user }: ChatMessageProps) {
+  // Handle both string messages and Message object
+  const isMessageObject = typeof message !== 'string';
+  
+  const role = isMessageObject ? message.role : sender || 'user';
+  const content = isMessageObject ? message.content : message;
+  const time = isMessageObject ? message.createdAt : timestamp;
+  
+  const isUser = role === "user";
 
   return (
     <div
@@ -46,7 +55,7 @@ export function ChatMessage({ message, user }: ChatMessageProps) {
         )}
       >
         <div className="prose dark:prose-invert">
-          <p className="m-0 whitespace-pre-wrap">{message.content}</p>
+          <p className="m-0 whitespace-pre-wrap">{content}</p>
         </div>
       </Card>
 
