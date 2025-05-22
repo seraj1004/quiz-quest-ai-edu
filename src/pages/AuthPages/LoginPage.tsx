@@ -32,7 +32,7 @@ export function LoginPage() {
       
       toast({
         title: "Login successful",
-        description: "Welcome back to LearnSmart!",
+        description: "Welcome back to TAi!",
       });
     } catch (error) {
       toast({
@@ -47,7 +47,7 @@ export function LoginPage() {
 
   return (
     <AuthLayout
-      title="Login to LearnSmart"
+      title="Login to TAi"
       description="Enter your credentials to access your account"
       footer={
         <div className="text-center text-sm">
