@@ -13,7 +13,7 @@ export function Logo({ className, showText = true }: LogoProps) {
       <div className="bg-primary rounded-md p-1">
         <BookOpen className="h-6 w-6 text-primary-foreground" />
       </div>
-      {showText && <span className="font-bold text-xl">LearnSmart</span>}
+      {showText && <span className="font-bold text-xl">TAi</span>}
     </div>
   );
 }

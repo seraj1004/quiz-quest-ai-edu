@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Logo } from "@/components/Logo";
+import { BookOpen, MessageCircle, BarChart, Trophy, ChevronRight } from "lucide-react";
 
 export default function Index() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -10,17 +11,32 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Navigation */}
-      <header className="border-b bg-white">
+      <header className="border-b bg-white sticky top-0 z-10">
         <div className="container mx-auto flex justify-between items-center h-16 px-4">
           <Logo />
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-4">
-            <Link to="/login" className="text-sm font-medium hover:text-primary">
-              Login
+            <Link to="/" className="text-sm font-medium hover:text-primary">
+              Home
             </Link>
+            <Link to="#" className="text-sm font-medium hover:text-primary">
+              For Students
+            </Link>
+            <Link to="#" className="text-sm font-medium hover:text-primary">
+              For Teachers
+            </Link>
+            <Link to="#" className="text-sm font-medium hover:text-primary">
+              About
+            </Link>
+            <Link to="#" className="text-sm font-medium hover:text-primary">
+              Contact
+            </Link>
+            <Button asChild variant="outline">
+              <Link to="/login">Log In</Link>
+            </Button>
             <Button asChild>
-              <Link to="/register">Get Started</Link>
+              <Link to="/register">Sign Up</Link>
             </Button>
           </nav>
           
@@ -69,18 +85,53 @@ export default function Index() {
         <div className={`md:hidden ${isNavOpen ? "block" : "hidden"}`}>
           <div className="container mx-auto px-4 py-2 flex flex-col space-y-2">
             <Link 
+              to="/" 
+              className="block px-4 py-2 hover:bg-gray-50 rounded-md"
+              onClick={() => setIsNavOpen(false)}
+            >
+              Home
+            </Link>
+            <Link 
+              to="#" 
+              className="block px-4 py-2 hover:bg-gray-50 rounded-md"
+              onClick={() => setIsNavOpen(false)}
+            >
+              For Students
+            </Link>
+            <Link 
+              to="#" 
+              className="block px-4 py-2 hover:bg-gray-50 rounded-md"
+              onClick={() => setIsNavOpen(false)}
+            >
+              For Teachers
+            </Link>
+            <Link 
+              to="#" 
+              className="block px-4 py-2 hover:bg-gray-50 rounded-md"
+              onClick={() => setIsNavOpen(false)}
+            >
+              About
+            </Link>
+            <Link 
+              to="#" 
+              className="block px-4 py-2 hover:bg-gray-50 rounded-md"
+              onClick={() => setIsNavOpen(false)}
+            >
+              Contact
+            </Link>
+            <Link 
               to="/login" 
               className="block px-4 py-2 hover:bg-gray-50 rounded-md"
               onClick={() => setIsNavOpen(false)}
             >
-              Login
+              Log In
             </Link>
             <Link 
               to="/register" 
               className="block px-4 py-2 bg-primary text-primary-foreground rounded-md"
               onClick={() => setIsNavOpen(false)}
             >
-              Get Started
+              Sign Up
             </Link>
           </div>
         </div>
@@ -91,18 +142,18 @@ export default function Index() {
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              Learn Smarter with
-              <span className="text-primary block">Personalized AI Education</span>
+              Personalized Learning for Every Student,
+              <span className="text-primary block">Powered by AI</span>
             </h1>
             <p className="text-xl text-gray-600">
-              Adaptive learning technology tailored to your individual needs, helping you master concepts and improve your grades.
+              TAi helps students learn smarter and teachers track progress faster.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg">
-                <Link to="/register">Create Account</Link>
+                <Link to="/register">Get Started</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link to="/login">Login</Link>
+                <Link to="#">Learn More</Link>
               </Button>
             </div>
           </div>
@@ -110,209 +161,162 @@ export default function Index() {
           <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg blur-xl opacity-30 animate-pulse-slow" />
-              <div className="relative bg-white p-6 rounded-lg shadow-lg">
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                        <path d="M12 17h.01"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="font-bold">Solve this equation:</h3>
-                      <p className="text-lg">2x + 5 = 15</p>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-3 p-2 bg-blue-50 rounded-md">
-                      <div className="w-4 h-4 border border-primary rounded-full flex items-center justify-center">
-                        <div className="w-2 h-2 bg-primary rounded-full" />
-                      </div>
-                      <span>x = 5</span>
-                    </div>
-                    
-                    <div className="flex items-center space-x-3 p-2 rounded-md">
-                      <div className="w-4 h-4 border border-gray-300 rounded-full" />
-                      <span>x = 10</span>
-                    </div>
-                    
-                    <div className="flex items-center space-x-3 p-2 rounded-md">
-                      <div className="w-4 h-4 border border-gray-300 rounded-full" />
-                      <span>x = 7</span>
-                    </div>
-                    
-                    <div className="flex items-center space-x-3 p-2 rounded-md">
-                      <div className="w-4 h-4 border border-gray-300 rounded-full" />
-                      <span>x = 3</span>
-                    </div>
-                  </div>
-                  
-                  <div className="pt-2 flex items-start border-t">
-                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3 mt-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                      </svg>
-                    </div>
-                    <p className="text-sm">
-                      <span className="font-medium text-primary">AI Tutor:</span> 
-                      <span className="block">That's correct! To solve 2x + 5 = 15, first subtract 5 from both sides to get 2x = 10, then divide by 2 to find x = 5.</span>
-                    </p>
-                  </div>
-                </div>
+              <div className="relative bg-white p-8 rounded-lg shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" 
+                  alt="Student using TAi" 
+                  className="rounded-lg shadow-lg max-w-full h-auto"
+                />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* How It Works Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">How TAi Works</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Our AI-powered platform creates a personalized learning experience in just three simple steps.
+            </p>
+          </div>
+          
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="bg-white p-6 rounded-lg shadow-sm border relative">
+              <div className="absolute -top-4 -left-4 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">1</div>
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-4 mx-auto">
+                <BookOpen size={32} />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-center">Take a Quick Test</h3>
+              <p className="text-gray-600 text-center">
+                Students begin with a brief diagnostic assessment to identify their current knowledge and skill levels.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm border relative">
+              <div className="absolute -top-4 -left-4 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">2</div>
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-4 mx-auto">
+                <MessageCircle size={32} />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-center">Get Personalized Questions</h3>
+              <p className="text-gray-600 text-center">
+                TAi analyzes results and provides custom questions at the right difficulty level for optimal learning.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm border relative">
+              <div className="absolute -top-4 -left-4 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">3</div>
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mb-4 mx-auto">
+                <BarChart size={32} />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-center">Track Progress</h3>
+              <p className="text-gray-600 text-center">
+                Teachers receive real-time insights on student performance, while students earn points and badges.
+              </p>
+            </div>
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Button asChild>
+              <Link to="/register" className="inline-flex items-center">
+                Start Learning Now <ChevronRight className="ml-2" size={16} />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
       
       {/* Features Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">How LearnSmart Works</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Key Features</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Our adaptive platform uses AI to create a personalized learning experience that adapts to your unique needs.
+              Discover how TAi is transforming education with advanced technology and innovative features.
             </p>
           </div>
           
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div className="bg-white p-6 rounded-lg shadow-sm border">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="bg-white p-6 rounded-lg shadow-sm h-full">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                  <line x1="8" y1="21" x2="16" y2="21"/>
-                  <line x1="12" y1="17" x2="12" y2="21"/>
-                </svg>
+                <BookOpen size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-2">Diagnostic Assessment</h3>
+              <h3 className="text-xl font-bold mb-2">Adaptive Learning</h3>
               <p className="text-gray-600">
-                Start with a brief assessment that identifies your strengths and areas for improvement in each subject.
+                Questions automatically adjust to match each student's unique learning pace and style.
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm border">
+            <div className="bg-white p-6 rounded-lg shadow-sm h-full">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                </svg>
+                <MessageCircle size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-2">Personalized Learning</h3>
+              <h3 className="text-xl font-bold mb-2">AI Chatbot Tutor</h3>
               <p className="text-gray-600">
-                Receive custom-tailored questions and materials that match your current skill level and learning style.
+                Students receive instant, personalized explanations when they get answers wrong.
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm border">
+            <div className="bg-white p-6 rounded-lg shadow-sm h-full">
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                </svg>
+                <BarChart size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-2">AI Tutoring</h3>
+              <h3 className="text-xl font-bold mb-2">Teacher Dashboard</h3>
               <p className="text-gray-600">
-                Get immediate feedback and explanations from your AI tutor, helping you understand concepts thoroughly.
+                Comprehensive analytics help teachers identify struggling students and learning gaps.
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm border">
+            <div className="bg-white p-6 rounded-lg shadow-sm h-full">
               <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-600 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                </svg>
+                <Trophy size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-2">Track Progress</h3>
+              <h3 className="text-xl font-bold mb-2">Gamified Scoring</h3>
               <p className="text-gray-600">
-                Monitor your improvement over time with detailed analytics and see how your skills are developing.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm border">
-              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="8" r="7"/>
-                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Earn Rewards</h3>
-              <p className="text-gray-600">
-                Stay motivated with a gamified system that rewards your achievements with points, badges, and ranks.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm border">
-              <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center text-cyan-600 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Teacher Insights</h3>
-              <p className="text-gray-600">
-                Teachers get comprehensive data on class and individual performance to provide targeted support.
+                Points, ranks, and badges keep students motivated and engaged with their learning.
               </p>
             </div>
           </div>
         </div>
       </section>
       
-      {/* Testimonials Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      {/* Testimonial Section */}
+      <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">What Our Users Say</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Hear from students and teachers who have transformed their learning experience with LearnSmart.
-            </p>
           </div>
           
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="bg-white p-6 rounded-lg shadow-sm border">
               <div className="flex items-center space-x-4 mb-4">
                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600">
-                  MS
+                  JS
                 </div>
                 <div>
-                  <h3 className="font-bold">Michael S.</h3>
+                  <h3 className="font-bold">Jamie Smith</h3>
                   <p className="text-sm text-gray-500">11th Grade Student</p>
                 </div>
               </div>
               <p className="text-gray-600">
-                "I struggled with math for years, but the personalized approach and AI tutor have helped me improve my grade from a C to an A- in just one semester!"
+                "TAi helped me improve my math grade from a C to an A- in just one semester! The personalized questions and AI tutor make learning so much easier."
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-6 rounded-lg shadow-sm border">
               <div className="flex items-center space-x-4 mb-4">
                 <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center font-bold text-green-600">
-                  JW
+                  MB
                 </div>
                 <div>
-                  <h3 className="font-bold">Jennifer W.</h3>
-                  <p className="text-sm text-gray-500">Science Teacher</p>
+                  <h3 className="font-bold">Ms. Brown</h3>
+                  <p className="text-sm text-gray-500">High School Science Teacher</p>
                 </div>
               </div>
               <p className="text-gray-600">
-                "As a teacher, I can now identify which students need extra help and in which specific areas. The insights I get have completely transformed how I structure my lessons."
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center font-bold text-purple-600">
-                  TR
-                </div>
-                <div>
-                  <h3 className="font-bold">Tyler R.</h3>
-                  <p className="text-sm text-gray-500">9th Grade Student</p>
-                </div>
-              </div>
-              <p className="text-gray-600">
-                "I love the gamification! Earning badges and watching my rank improve makes learning actually fun, and I find myself studying more often than before."
+                "The teacher dashboard has transformed my classroom. I can quickly identify which students need help and with which concepts, making my teaching much more effective."
               </p>
             </div>
           </div>
@@ -322,9 +326,9 @@ export default function Index() {
       {/* CTA Section */}
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="container mx-auto max-w-6xl text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to transform your learning experience?</h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to transform learning with AI?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Join thousands of students already improving their grades with personalized AI education.
+            Join thousands of students and teachers already improving educational outcomes with TAi.
           </p>
           <Button asChild size="lg" variant="secondary">
             <Link to="/register">Get Started Now</Link>
@@ -344,22 +348,12 @@ export default function Index() {
             </div>
             
             <div>
-              <h3 className="font-bold mb-4">Platform</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white">Features</a></li>
-                <li><a href="#" className="hover:text-white">How It Works</a></li>
-                <li><a href="#" className="hover:text-white">Pricing</a></li>
-                <li><a href="#" className="hover:text-white">For Teachers</a></li>
-              </ul>
-            </div>
-            
-            <div>
               <h3 className="font-bold mb-4">Resources</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white">Blog</a></li>
-                <li><a href="#" className="hover:text-white">Help Center</a></li>
-                <li><a href="#" className="hover:text-white">Tutorials</a></li>
-                <li><a href="#" className="hover:text-white">Contact</a></li>
+                <li><a href="#" className="hover:text-white">How It Works</a></li>
+                <li><a href="#" className="hover:text-white">For Students</a></li>
+                <li><a href="#" className="hover:text-white">For Teachers</a></li>
+                <li><a href="#" className="hover:text-white">Pricing</a></li>
               </ul>
             </div>
             
@@ -368,14 +362,24 @@ export default function Index() {
               <ul className="space-y-2 text-sm">
                 <li><a href="#" className="hover:text-white">About Us</a></li>
                 <li><a href="#" className="hover:text-white">Careers</a></li>
+                <li><a href="#" className="hover:text-white">Blog</a></li>
+                <li><a href="#" className="hover:text-white">Contact</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="font-bold mb-4">Legal</h3>
+              <ul className="space-y-2 text-sm">
                 <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
                 <li><a href="#" className="hover:text-white">Terms of Service</a></li>
+                <li><a href="#" className="hover:text-white">Data Protection</a></li>
+                <li><a href="#" className="hover:text-white">Accessibility</a></li>
               </ul>
             </div>
           </div>
           
           <div className="border-t border-gray-800 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm">© 2023 LearnSmart. All rights reserved.</p>
+            <p className="text-sm">© 2023 TAi Education. All rights reserved.</p>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <a href="#" className="hover:text-white">
                 <span className="sr-only">Facebook</span>
